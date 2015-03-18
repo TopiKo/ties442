@@ -3,30 +3,19 @@ title: TIES442 - Tasks - Week 1
 lang: en
 ...
 
-# Weekly tasks 1
-
-Final version, published March 12 2015
-
-Deadlines for handing in the tasks, and their effects on the awarded points:
-
-* max 3 points: 17 March 2015 10:15 am
-* max **3** points: 24 March 2015 10:15 am (note: no penalty due to first time)
-* max 1 point: 30 June 2015 12:00 pm
-
-----
-
-The first tasks require just thinking. In the following weeks, there will be
-also practical exercises.
-
-Name: *write your name here* \
-Email: *write your email here*
-
 ## Task 1
 
 What kinds of things you expect to learn during this course? What kinds of
 artificial intelligence applications you wish to be able to develop after this
 course? What kinds of applications would you like to learn to develop during the
 next ten years after the course?
+
+# Answer
+I expect to learn what is the state of machine learning at the moment, what kind of approaches has people developed and how well these approaches perform. I would like to undestand the challenges related to learning systems. I am also interested in the concept of learning and intelligence in general. 
+
+I would like to be able to develop simple learning program that could try to predict (after learning) human bahauviour in some simple enviroments. Example could be rock scissors paper game..
+
+In the next ten years it would be nice to develop programs that could survive in many different enviroments by adapting to the enviroment. These machines could also share their experiences with each other and thus teach their abilities.
 
 ## Task 2
 
@@ -37,6 +26,8 @@ what ways artificial intelligences will improve in performing that task.
 
 Log here the places where you looked for the example, the address where you
 learned about the example and any revelations you experienced during the search.
+
+
 
 ## Task 3
 
