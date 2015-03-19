@@ -27,18 +27,18 @@ is part of a team, and there is also an opposing team, but focus on just this
 one agent.
 
 * How could the agent's performance be measured?
-1. Agents team has ball:
-    1.1. teammate has ball:
-        -Is it possible to reveive pass from the teammate holding the ball
+    1. Agents team has ball:
+        1.1. teammate has ball:
+            -Is it possible to reveive pass from the teammate holding the ball
             - But is it still on its own 'area' i.e., defender has to stay lower...
-    1.2. Agent has the ball:
-        - Velocity to the attack end. 
-        - Distance from opponents.
-        - How many options to pass the ball to teammates, prefer the attack direction. 
-2. Agents team does not have the ball:
-        - Own area.
-        - Keeping close to one opponent player that is on agents area.
-        - If ball comes close - try to get closer to it... 
+        1.2. Agent has the ball:
+            - Velocity to the attack end. 
+            - Distance from opponents.
+            - How many options to pass the ball to teammates, prefer the attack direction. 
+     2. Agents team does not have the ball:
+            - Own area.
+            - Keeping close to one opponent player that is on agents area.
+            - If ball comes close - try to get closer to it... 
 * What is the environment like? What kinds of elements describe its state?
 
 * What actuators the agent would need? Which actions it would need to perform?
