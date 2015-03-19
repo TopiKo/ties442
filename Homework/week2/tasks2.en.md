@@ -31,9 +31,12 @@ one agent.
     1. Agents team has ball:
 
         1.1. teammate has ball:
-            -Is it possible to reveive pass from the teammate holding the ball
+            
+            - Is it possible to reveive pass from the teammate holding the ball
             - But is it still on its own 'area' i.e., defender has to stay lower...
+        
         1.2. Agent has the ball:
+        
             - Velocity to the attack end. 
             - Distance from opponents.
             - How many options to pass the ball to teammates, prefer the attack direction. 
