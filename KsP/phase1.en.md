@@ -61,7 +61,7 @@ I do not know anything about desing principles...
             - At least the agent needs to be able to regocnise patterns.
         * Are their computational limitations, such as time that can be sent on searching for solutions?	
             - The computation does not pose a problem. The amount of data is so small.
-     - What kinds of strategies the agent could employ in order to come up with reasonable actions based on the available information?
+    - What kinds of strategies the agent could employ in order to come up with reasonable actions based on the available information?
         - The may be quite limited, the point is to try to quess the coming choice of the opponent based on the history of choices made by the opponent. Maybe the agent could try to find stradegy to affect the coming choices of the opponent and the use that.
             
 
