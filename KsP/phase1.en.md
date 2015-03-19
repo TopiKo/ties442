@@ -26,9 +26,9 @@ I do not know anything about desing principles...
     - What is the working environment of the agent? Use the Russell & Norvig's
       [PEAS categories](topics1.en.md)
 	
-	PEAS:
-	- is designed with certain Performance requirements
-	    - Goal is to find and learn at least simple patterns used by the opponent. 	
+        PEAS:
+        - is designed with certain Performance requirements
+            - Goal is to find and learn at least simple patterns used by the opponent. 	
 	- for a particular Environment or environment class 
 	    - Enviroment is just input from the opponent ian is one of the three RsP, also the choice of the angent affects the future choices of the opponent.
 	- using certain Actuators for acting on its environment
