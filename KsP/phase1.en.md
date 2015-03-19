@@ -25,6 +25,7 @@ I do not know anything about desing principles...
   agent.
     - What is the working environment of the agent? Use the Russell & Norvig's
       [PEAS categories](topics1.en.md)
+	
 	PEAS:
 	- is designed with certain Performance requirements
 	    - Goal is to find and learn at least simple patterns used by the opponent. 	
