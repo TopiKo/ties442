@@ -48,10 +48,17 @@ one agent.
             - If ball comes close - try to get closer to it... 
 
 * What is the environment like? What kinds of elements describe its state?
+    - Enviroment consist: field, teammates, opponents, ball and two goals.
+    - State is described by the locations, velocities and accelerations of all the players + ball. 
 
 * What actuators the agent would need? Which actions it would need to perform?
+    - Legs. 
+    - Abilities: running, running with ball, ability to pass opponents (tricks/bluffs), passing ball to teammate, kicking ball to goal, taking ball from opponent. 
+
 * What sensors the agent would need? What kinds of things it should be able to
   perceive?
+    - Vision.
+    - The approximate positions and state of motion of teammates and opponents. Accurate position and velocity of ball.
 
 This is the so-called PEAS scheme for analyzing agents (performance,
 environment, actuators, sensors). It is a tool for defining the basic building
@@ -62,14 +69,29 @@ blocks of agents. Search the web for more information about it.
 Learn about simple reflex agents on the web. What kinds of reflexes
 (or *if-then*-rules) the soccer agent would need to succeed?
 
+    - if I have ball then I run towards attack end with it.
+    - if opponent is coming towards then I change direction.
+    - if goal is unguarded then I kick ball into it.
+    - ...
+
 What could be added to the agent, in addition to simple reflexes, to make it
 perform better?
+    - 
 
 ## Task 2
 
 Refresh your memory on finite state machines. Describe with a brief example,
 what are the start state, final state, transition, input and output of a
 machine. What is the difference between Moore and Mealy machines?
+    
+    - start state = the state in which the machine is supposed to receive input.
+    - final state = accept state = The machine ends in this state after processing the input if the given input has been of type that the machine understands. Ex. machine which determines if given input has even number of zeros: if even input has even number of zeros final state machine will end in the final state = accept state, if there is odd number of zeros the final state machine does not end in the accept state. 
+    - transition =  is a set of actions to be executed when a condition is fulfilled or when an event is received. Ex. When timer says 'time!' traffic lights change from green to red.
+    - input = whatever thing the machine eats.
+    - output = signal given by the machine.
+
+    Moore machine: output depends only on the state of the machine.
+    Mealey machine: output depends on the input and the state of the machine. 
 
 * For example:
 * <http://en.wikipedia.org/wiki/Finite-state_machine>
