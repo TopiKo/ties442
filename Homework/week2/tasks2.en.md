@@ -132,18 +132,35 @@ image below. The agent is represented by the circle, black squares are closed.
 
 What perceptions and actions the agent has?
 
+    - perceptions: is this cell dirty, is the cell I'm trying to enter closed.
+    - actions: move, clean
+
 What is the performance measure of the agent?
+
+    - how much is has removed dirt in time unit.
+    - how much it has removed dirt per energy unit?
 
 What kinds of reflexes (or *if-then*-rules) the agent should have in order to
 keep the world clean with optimal cost? What affects the cost?
 
+    - if this cell is dirty then clean it
+    - if this cell is dirty then try to probe the nearby cells for dirt as well
+    - if the cell ahead is closed turn
+    
 How would you describe the agent as a state machine?
+
+    - See state_diag.pdf
 
 How does the speed at which the world becomes dirty affect, how often the agent
 should clean the world instead of resting?
 
+    - See robot_cleaner_math.pdf
+    
 Will the agent succeed also at cleaning the other world depicted in the
 image below?
+    
+    - It should be but this of course takes some amount of time depending how the n-moves is defined and does it for example change in time. n- could for exapmle develop like 1, 2,..., N, 1, 2,..., N, ..., 1, 2,..., N. The machine making spirals (assuming no walls) that change their origin. 
+
 
 ![World 2](/images/world_2.png)
 
