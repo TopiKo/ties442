@@ -1,0 +1,116 @@
+Solutions to tasks 3, tis442.
+
+1. Palaute: 
+Luennot:
+
+Luennoilla ei mielestäni tarvitseisi keskittyä näin paljoa harjoitustehtäviin. Olen ollut vain muutamalla luenolla, mutta ainakin tehtäviä miettineenä tahtoo kuolla tylsyyteen jos samat asiat käydään läpi useaan kertaan. Luentojen tehtäväksi voisi jäädä enemmän motivaation luonti ja yleisesti teorian rakentelu. Ainakin itse olen enemmän kiinnostunut kysymyksestä minkälaisia välineitä ja miksi 'tekoäly' vaatii, kuin suoranaisesti näiden välineiden yksityiskohdista. Erityisesti haluaisin kuulla, minkälaisia oppivia välineitä/systeemeitä on kehitetty ja millaisille teorioille ne pohjaavat.       
+
+Tehtävät:
+Tehtävien osalta on jäänyt itselleni hiukan epäselväksi, millä tasolla ne tulisi tehdä. Esim tehtävissä 4 viimoinen kohta on kuinka muotoilisit kauppamiehen ongelman graafissa etsintänä. En ole aivan varma, mutta veikkaan, että on jokseenkin tolkuttoman vaikea ongelma ratkaistavaksi kunnolla (ja kasa valmiita ratkaisuja löytyy netistä). Sen sijaan käsiään voi heilutella ja vähän tuumailla sinnepäin, mutten tiedä liekö tässä juuri itua. En ole käynyt tietotekniikan laitoksen kursseja, mutta tehtävät tuntuvat muutenkin aika leikkaa liimaa painotteisille ts. selvitä miten tämä toimii -> google, puff. Näin.
+
+
+2. a) Breadth first search order:
+step index
+0 4
+1 6
+2 9 
+3 7 
+4 3
+5 1 
+6 2
+7 5
+8 8.
+Auxliary data structure should at least take care that the same path does not come taken into account multiple times. This could happen if the tree has loops in it.
+
+This is problematic if 1) the branching factor (=b) is large number of items in frontier ~ b^n. 2) if the goal is suppposed to be far from the start.
+ 
+b) Depth first search order:
+step index
+0 4
+1 6 
+2 7
+3 3
+4 9
+5 1
+6 5
+7 8
+8 2.
+
+Auxliary data structure should at least take care that the same path does not come taken into account multiple times. This could happen if the tree has loops in it.
+
+Problematic due: it is P-complete -> "a nightmare for parallel processing".
+http://en.wikipedia.org/wiki/Depth-first_search
+
+3. a) degree of the node = the number of edges connecting to the node.
+Degree of node 5 = 2, neighbors of node 5 = 3, 7. 
+diameter of graph = "the longest shortest path" i.e., the number of edges in the longest path on of the graph if backtrack, detour, or loop are excluded from consideration.
+http://mathworld.wolfram.com/GraphDiameter.html
+
+b) 
+This is sort of depth first algorhithm.
+search:
+start node = s0
+goal node = g != s0
+i:th node = s_i
+path = s0,...,s_n := p
+path neighbors := pn[i], tracks all the neighbors of paths node i tha has NOT been visited yet. 
+v  = list of al visited nodes so far
+	 
+E(si) = s_i^0,...,s_i^n (= neighbors of node si)
+C\s_p = Group C from which s_p has been taken away.
+
+
+1 s_i  =  s0
+2 p    =  {s0}
+3 while s_i != g:
+4  if {E(s_i)\v} not empty: (v all the visited nodes, i.e., the path we have taken so far)
+5    if g in {E(s_i)}: p = {p, g} (append g to p)
+6    else: 
+7      if {E(s_i)\v} not empty: (take neighbors of s_i remove all nodes that we have visited - take the first of remaining)
+8        s_i  =  {E(s_i)\v}[0]          	
+9        p    =  {p, s_i}
+10       pn   =  {pn\s_i, {E(s_i)\v}[1:]} (collect all the remaining neighboring nodes to our path neighbors. Note that we also remove s_i from the unvisited neighbors pn list pn\s_i)
+11 else:
+12   find latest node on path p that has non empty not visited neighbors list pn, i.e., 
+13   k = 0
+14   while pn[-k] == empty:  (start from end)
+15     k += 1		
+16   s_i  =  pn[k][0]
+17   p    = {s0,...,s_k, s_i}
+18   pn   = {pn_0,...,pn_k}
+19 v    = {v, s_i} 
+  	
+Choosing next node: 1) It must not be on the list of visited nodes! We do not want to go in circles. 2) If first condition ok - just pick one...
+
+problems:
+1) the list of neighbor lists will grow huge quite quicly. (no solution..)
+2) The goal might be close to start and this algorhithm just goes straight to moon. (maybe combine somehow with breadth first method.)
+3) This does not necessarily provide the shortest path.
+
+c) For undirected graph G spanning tree T is a subragph of G that includes all the nodes of G so that T is a tree.
+http://en.wikipedia.org/wiki/Spanning_tree
+minimun spanning tree is spanning tree T of G so that when calculated the sum of the wweights of the edges in the tree we obtain number that is equal or less than the number obtained for any other spaning tree T' of G.
+http://en.wikipedia.org/wiki/Minimum_spanning_tree
+
+Spanning 'stick': 8 - 1- 9 - 4 - 7 - 5- 3 - 2 - 6...
+
+Algorithm for finding minimal spanning tree:
+Prim's algorithm:
+Take any node add it to tree T, then add node y (not in T) so that the edge (x,y) has the minimal value of all possibple edges (T,cT).
+
+d) Making spanning tree out of the graph one can use all the methods that are generated for searching in trees..
+
+5) f(x) = O(g(x)) as x -> Infinity describes how the function behaves as the argument starts to get large values. For example T ~ O(N^2) => T is proportional square of n when n is large..  
+
+http://en.wikipedia.org/wiki/NP-hard
+NP-hard: Class of problems which are at least as hard as the hardest problems in NP. Problems in NP-hard do not have to be elements of NP, indeed, they may not even be decidable problems.
+NP-complete: Class of problems which contains the hardest problems in NP. Each element of NP-complete has to be an element of NP.
+
+
+ 
+       
+
+
+
+
+

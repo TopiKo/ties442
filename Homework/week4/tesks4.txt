@@ -1,0 +1,78 @@
+Tasks 4, ties 442.
+
+1. Cannibals and adventurers:
+a)
+State: (i,j|i',j', b), where i (i') = number of cannibals on the initial (goal) side of the river, j (j') = number of adventurers on the initial (goal) side of the river and b is the side of the boat = init or goal.
+
+Init state (3,3|0,0, init).
+
+Successor function:
+if b = init: (one can only transport people from the side where the boat is...)
+  S((i,j|i',j', init)) = {A(i-2,j|i'+2, j', goal), A(i-1,j-1|i'+1, j'+1, goal), A(i,j-2|i', j'+2, goal)} := {A(1), A(2), A(3)}
+if b = goal:
+  S((i,j|i',j', goal)) = {A(i+2,j|i'-2, j', init), A(i+1,j+1|i'-1, j'-1, init), A(i,j+2|i', j'-2, init)} := {A(1), A(2), A(3)}
+
+ = {successing states}, here function A(state) = {state or 0} keeps track that the state is allowed i.e., no adventurers gets eaten. If state is allowed A(state) = state else A(state) = 0. 
+
+A(i,j|i',j', b): 
+if 0 <= i and 0 <= j and i + i' == 3 and j + j' == 3:
+  if j != 0:
+    if j' != 0:
+      if i <= j and i' <= j':
+        Allowed = True
+    elif j' == 0:
+      Allowed = True
+  elif j == 0:
+   Allowed = True
+
+Goal test function:
+if i' == 3 and j' == 3 => GOAL.
+
+Path cost function is the number of boat crossings. 
+
+b) I would select the bredth-first as the branching number is sufficiently small ~ 3 (note that in practice it is even smaler as the possiple successing states are often limited by adventurers not eaten condition) and the path to goal is expected to be quite short. I would restrict the method of going into loops!
+
+Note that as we know that the amount of people is constant, unless someone gets eaten, the i' and j' are in the states just for convenience. In the following I drop these for quicker typing.
+
+Breath first:
+
+1 (33,i)
+2 (13,g) (22,g)
+3 (23,i) [(33,i) restricted as we have been there already..] (23,i)
+4 (03,g) [(22,g), restricted!]
+5 (13,i) [(23,i), restricted]
+6 (11,g) [(03,g), restricted]
+7 (22,i) [(13,i), restricted]
+8 (20,g) [(11,g), restricted]
+9 (30,i) [(22,i), restricted]
+10(10,g) [(20,g), restricted]
+11(20,i) [(30,i), restricted]
+12(00,g) [(10,g), restricted] GOAL!  
+
+c) Memory...
+
+2.
+a)
+Initial state is (8,5) 
+Successor function: Take the unvisited node with smallest tentative distance.
+Goal test function: Is goal node in visited nodes.
+Each node has by construction assigned the tentative distance (=path cost) that is the smallest of all possiple paths leading to it.
+  
+b) Advances lika a pyramid was build.
+c) Each node p has not onle the cost g(p) from start to node p but ALSO an estimate h(p) from p to goal. Then the node which to add to the visited nodes is the one with smallest f(p) = g(p) + h(p). Note that h(p) should underestimate the cost from p to goal. http://artint.info/html/ArtInt_57.html  
+
+Heuristic in our case becomes: h(p) = sqrt((p1 - g1)**2 + (p2 - g2)**2).
+
+d) Straight up then left then right then up then left -> goal..
+
+e) It uses much less nodes -> faster. This is due to the estimation function h(p) that gives the quess for good direction in the search.
+
+f) Store the n- cheapest ones from the frontier. Doesn't the agent already have only acces to the next legal moves? If the agent knew for example about the existance of the wall it would not bounce straight into it..
+
+3. From all possiple routes starting from none 6 and going through all the cities find the one with mininmal cost. If the path has to be Hamiltonian, i.e., each node visited once and only once we first need to find all the Hamiltonian paths strating from node 6 in the graph. Heuristics: No multiple loops (if the path is not Hamiltonian), i.e., if loop it can be only once. Otherwise possibility to create stupid paths circling same loop many times. 
+
+
+
+
+    
+ 
