@@ -1,0 +1,12 @@
+Phase 2 for the projeckt.
+
+
+1. Sensors: vision what the opponen chooses, also maybe somekind timescale - how long did it take for the opponent to make his pick.
+Actions: pick the best option from rock - scissor paper in order to beat the opponent. Mayby mock the opponent to obtain desired behaviour from the opponent...
+
+Performance measure: n/m of the last k games, where n = machine victories, m = human victories. The k is some kind of averaging measure, as it is not sensible to judge the agend based on single game.
+
+2. we have history x which leads to action y. How far the history extends? We have m possible combinations of 3 game history, see how many of these combinations are present in the current game history. If the last three game history matches some (possibly many) three game sets from the history see the most propable future -> make choice according. 
+
+4.      
+  
